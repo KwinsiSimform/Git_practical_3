@@ -2,7 +2,11 @@ const http = require("http");
 
 const PORT = 8080;
 
-// ❌ Bug: server variable not defined properly
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Node service running on port 8080\n");
+});
+
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
